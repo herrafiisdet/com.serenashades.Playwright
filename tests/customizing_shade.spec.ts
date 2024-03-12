@@ -6,8 +6,8 @@ test.use({
         height: 1080
     },
 
-    launchOptions:{
-        slowMo:100 //ms   
+    launchOptions: {
+        slowMo: 100 //ms   
     }
 
 });
@@ -71,8 +71,19 @@ test('Customizing a roller shade Positive test ', async ({ page }) => {
     await page.locator("(//a[@class='button'])[3]").click();  // Clicking on Next button.
 
     // Entering Shade Location
-    await page.locator("input.paste").fill("Master Bedroom");
-    await page.locator("//a[contains(text(),'Add to Cart')]").click();
+    await page.locator("input.paste").fill("Master Bedroom");  //  Adding Room Name.
+    await page.locator("//a[contains(text(),'Add to Cart')]").click(); //  Clicking on Add to cart Button.
+
+    // validating the Test.
+    const shoppingCartValid = await page.locator("//span[text()='Shopping Cart']").innerText();
+    expect(shoppingCartValid).toEqual('Shopping Cart');
+    if (shoppingCartValid == "Shopping Cart") {
+        console.log("/// **** Great job, User Customized a shade and Added it to the Cart successfly ****///");
+        page.screenshot()
+    } else {
+        console.log("/// **** User failed to Customized a shade and Added it to the Cart ****///");
+        page.screenshot()
+    }
 
 
-})
+});

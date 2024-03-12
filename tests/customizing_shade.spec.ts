@@ -1,6 +1,6 @@
-import { test, expect, chromium } from '@playwright/test';
+import { test, expect} from '@playwright/test';
 test.use({
-    headless: true,
+    //headless: true,
     viewport: {
         width: 1920,
         height: 1080

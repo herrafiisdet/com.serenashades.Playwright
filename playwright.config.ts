@@ -33,7 +33,7 @@ export default defineConfig({
     screenshot:'on',
     video:'on',
     headless: true,
-    viewport: { width: 1920, height: 911},
+    viewport: { width: 1536, height: 707},
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
